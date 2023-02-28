@@ -1,6 +1,14 @@
 pluginManagement {
     repositories {
-        google()
+//        google()
+
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+
+        maven { url 'https://maven.aliyun.com/repository/public' }
+
         mavenCentral()
         gradlePluginPortal()
     }
@@ -8,9 +16,19 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        google()
+//        google()
+
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+
+        maven { url 'https://maven.aliyun.com/repository/public' }
+
         mavenCentral()
     }
 }
 rootProject.name = "AndroidExamples"
 include ':app'
+include ':basic'
+include ':common'

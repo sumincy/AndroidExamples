@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity android:name=".activity.ActivityExamplesActivity" />
+
+
+        <activity android:name=".activity.lifecycle.CommonLifeCylcleActivity" />
+
+        <!--        <activity-->
+        <!--            android:name=".activity.lifecycle.ConfigChangeLifeCylcleActivity"-->
+        <!--            android:configChanges="orientation" />-->
+
+        <activity
+            android:name=".activity.lifecycle.ConfigChangeLifeCylcleActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+
+        <activity android:name=".activity.launchmode.LaunchModeActivity" />
+
+        <activity
+            android:name=".activity.launchmode.StandardActivity"
+            android:launchMode="standard" />
+
+        <activity
+            android:name=".activity.launchmode.SingleTopActivity"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".activity.launchmode.SingleTaskActivity"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".activity.launchmode.SingleInstanceActivity"
+            android:launchMode="singleInstance" />
+
+
+    </application>
+</manifest>

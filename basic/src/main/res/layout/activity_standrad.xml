@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Standard"
+        android:textSize="18sp" />
+
+
+    <Button
+        android:id="@+id/btn_jump_standard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="跳转Standard" />
+
+    <Button
+        android:id="@+id/btn_jump_singletop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="跳转singleTop" />
+
+    <Button
+        android:id="@+id/btn_jump_singleTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="跳转SingleTask" />
+
+    <Button
+        android:id="@+id/btn_jump_singleInstance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="跳转SingleInstance" />
+
+    <Button
+        android:id="@+id/btn_print_stack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="打印当前堆栈" />
+
+    <Button
+        android:id="@+id/btn_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="关闭" />
+
+</LinearLayout>

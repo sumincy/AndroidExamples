@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Activity 典型生命周期",
+    "path": "/basic/examples/commonlifecycle",
+    "description": ""
+  },
+  {
+    "name": "Activity 设置configChanges的生命周期",
+    "path": "/basic/examples/configchangelifecycle",
+    "description": ""
+  },
+  {
+    "name": "Activity 启动模式",
+    "path": "/basic/examples/launchmode",
+    "description": ""
+  }
+]
