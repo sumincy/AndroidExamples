@@ -7,6 +7,7 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
+import com.yung.android.basic.activity.LifecycleActivity;
 import com.yung.android.basic.databinding.ActivitySingleInstanceBinding;
 
 /**
@@ -18,7 +19,7 @@ import com.yung.android.basic.databinding.ActivitySingleInstanceBinding;
  *    version : 1.0
  * <pre>
  */
-public class SingleInstanceActivity extends StackActivity {
+public class SingleInstanceActivity extends LifecycleActivity {
 
     private final String TAG = this.getClass().getSimpleName();
     private ActivitySingleInstanceBinding binding;

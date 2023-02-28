@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yung.android.basic.databinding.ActivityExamplesBinding;
+import com.yung.android.common.app.CommonApplication;
 import com.yung.android.common.entity.PageItem;
 import com.yung.android.common.entity.PagePath;
 import com.yung.android.common.ui.adapter.PageItemsAdapter;
@@ -34,6 +35,9 @@ public class ActivityExamplesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityExamplesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+        ((CommonApplication) getApplication()).getLogCache().setLength(0);
 
         initViews();
     }

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.yung.android.basic.activity.LifecycleActivity;
 import com.yung.android.basic.databinding.ActivityCommonLifecycleBinding;
 import com.yung.android.common.entity.PagePath;
 
@@ -54,7 +55,7 @@ import java.util.UUID;
  * <pre>
  */
 @Route(path = PagePath.ACTIVITY_COMMON_LIFECYCLE)
-public class CommonLifeCylcleActivity extends AppCompatActivity {
+public class CommonLifeCylcleActivity extends LifecycleActivity {
 
     private String id = UUID.randomUUID().toString();
 
@@ -117,6 +118,7 @@ public class CommonLifeCylcleActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Log.i(TAG, "------onResume------" + id);
+        binding.tvLog.setText(getLifecycleLog());
     }
 
     @Override

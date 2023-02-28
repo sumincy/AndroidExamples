@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.yung.android.basic.activity.LifecycleActivity;
 import com.yung.android.basic.databinding.ActivityCommonLifecycleBinding;
 import com.yung.android.basic.databinding.ActivityConfigchangesLifecycleBinding;
 import com.yung.android.common.app.CommonApplication;
@@ -50,7 +51,7 @@ import java.util.UUID;
  * <pre>
  */
 @Route(path = PagePath.ACTIVITY_CONFIG_CHANGE_LIFECYCLE)
-public class ConfigChangeLifeCylcleActivity extends AppCompatActivity {
+public class ConfigChangeLifeCylcleActivity extends LifecycleActivity {
 
     private String id = UUID.randomUUID().toString();
 
@@ -58,7 +59,6 @@ public class ConfigChangeLifeCylcleActivity extends AppCompatActivity {
 
     private ActivityConfigchangesLifecycleBinding binding;
 
-    private StringBuilder sb;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -68,10 +68,6 @@ public class ConfigChangeLifeCylcleActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         initViews();
-        sb = ((CommonApplication) getApplication()).getLogCache();
-
-        sb.append("onCreate()");
-        sb.append(System.getProperty("line.separator"));
     }
 
     private void initViews() {
@@ -95,47 +91,31 @@ public class ConfigChangeLifeCylcleActivity extends AppCompatActivity {
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         Log.i(TAG, "------onSaveInstanceState------" + id);
-
-        sb.append("onSaveInstanceState()");
-        sb.append(System.getProperty("line.separator"));
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         Log.i(TAG, "------onRestoreInstanceState------" + id);
-
-        sb.append("onRestoreInstanceState()");
-        sb.append(System.getProperty("line.separator"));
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         Log.i(TAG, "------onStart------" + id);
-
-        sb.append("onStart()");
-        sb.append(System.getProperty("line.separator"));
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
         Log.i(TAG, "------onRestart------" + id);
-
-        sb.append("onStart()");
-        sb.append(System.getProperty("line.separator"));
     }
 
     @Override
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         Log.i(TAG, "------onConfigurationChanged------" + id);
-
-        sb.append("onConfigurationChanged()");
-        sb.append(System.getProperty("line.separator"));
-
-        binding.tvLog.setText(sb.toString());
+        binding.tvLog.setText(getLifecycleLog());
     }
 
     @Override
@@ -143,36 +123,24 @@ public class ConfigChangeLifeCylcleActivity extends AppCompatActivity {
         super.onResume();
         Log.i(TAG, "------onResume------" + id);
 
-        sb.append("onResume()");
-        sb.append(System.getProperty("line.separator"));
-
-        binding.tvLog.setText(sb.toString());
+        binding.tvLog.setText(getLifecycleLog());
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         Log.i(TAG, "------onPause------" + id);
-
-        sb.append("onPause()");
-        sb.append(System.getProperty("line.separator"));
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         Log.i(TAG, "------onStop------" + id);
-
-        sb.append("onStop()");
-        sb.append(System.getProperty("line.separator"));
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         Log.i(TAG, "------onDestroy------" + id);
-
-        sb.append("onDestroy()");
-        sb.append(System.getProperty("line.separator"));
     }
 }

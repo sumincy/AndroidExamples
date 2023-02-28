@@ -20,7 +20,7 @@ public class CommonApplication extends Application {
 
     protected List<AppCompatActivity> activityStack = new ArrayList<>();
 
-    private StringBuilder sb = new StringBuilder();
+    private StringBuilder logCache = new StringBuilder();
 
     @Override
     public void onCreate() {
@@ -32,7 +32,7 @@ public class CommonApplication extends Application {
     }
 
     public StringBuilder getLogCache() {
-        return sb;
+        return logCache;
     }
 
     @Override
