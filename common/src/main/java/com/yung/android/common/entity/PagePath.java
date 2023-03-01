@@ -10,9 +10,8 @@ package com.yung.android.common.entity;
  * <pre>
  */
 public class PagePath {
-    public static final String ACTIVITY_EXAMPLES = "/basic/activity";
 
-    public static final String BROADCAST_EXAMPLES = "/basic/broadcastreceiver";
+    public static final String ACTIVITY_EXAMPLES = "/basic/examples";
 
     public static final String ACTIVITY_COMMON_LIFECYCLE = "/basic/activity/commonlifecycle";
 
@@ -25,5 +24,14 @@ public class PagePath {
     public static final String ACTIVITY_BROADCAST_DYNAMIC = "/basic/broadcast/dynamic";
 
     public static final String ACTIVITY_BROADCAST_ORDERED = "/basic/broadcast/ordered";
+
+    public static final String ACTIVITY_BROADCAST_LOCAL = "/basic/broadcast/local";
+
+    public static final String ACTIVITY_SERVICE_BIND = "/basic/service/bind";
+
+    public static final String ACTIVITY_SERVICE_START = "/basic/service/start";
+
+    public static final String ACTIVITY_SERVICE_INTENT = "/basic/service/intent";
+
 
 }

@@ -29,6 +29,7 @@ public class PageItemsAdapter extends RecyclerView.Adapter<PageItemsAdapter.View
 
     private List<PageItem> mDatas = new ArrayList<>();
     private Context mContext;
+
     public PageItemsAdapter(Context context, List<PageItem> datas) {
         this.mDatas.addAll(datas);
         this.mContext = context;
@@ -54,6 +55,7 @@ public class PageItemsAdapter extends RecyclerView.Adapter<PageItemsAdapter.View
             @Override
             public void onClick(View v) {
                 ARouter.getInstance().build(pageItem.getPath())
+                        .withString("list_json", pageItem.getListJson())
                         .navigation();
             }
         });

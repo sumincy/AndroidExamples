@@ -26,6 +26,7 @@ public class PageItem {
     private String name;
     private String path;
 
+    private String listJson;
     private String group;
     private String description;
 
@@ -44,6 +45,14 @@ public class PageItem {
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+    public String getListJson() {
+        return listJson;
+    }
+
+    public void setListJson(String listJson) {
+        this.listJson = listJson;
     }
 
     public String getGroup() {
@@ -88,12 +97,14 @@ public class PageItem {
                 String name = jsonObject.optString("name");
                 String path = jsonObject.optString("path");
                 String group = jsonObject.optString("group");
+                String listJson = jsonObject.optString("list_json");
                 String description = jsonObject.getString("description");
 
                 PageItem pageItem = new PageItem();
                 pageItem.setName(name);
                 pageItem.setPath(path);
                 pageItem.setGroup(group);
+                pageItem.setListJson(listJson);
                 pageItem.setDescription(description);
 
                 pageItems.add(pageItem);

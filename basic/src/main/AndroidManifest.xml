@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application>
-        <activity android:name=".activity.ActivityExamplesActivity" />
+        <activity android:name=".activity.ExamplesActivity" />
 
-        <activity android:name=".activity.BroadcastExamplesActivity" />
+<!--        <activity android:name=".activity.BroadcastExamplesActivity" />-->
 
         <activity android:name=".activity.lifecycle.CommonLifeCylcleActivity" />
 
@@ -41,6 +41,12 @@
 
         <activity android:name=".activity.broadcast.OrderedBroadCastActivity" />
 
+        <activity android:name=".activity.broadcast.LocalBroadCastReceiverActivity" />
+
+        <activity android:name=".activity.service.BindServiceActivity" />
+
+        <activity android:name=".activity.service.StartServiceActivity" />
+
         <!--
         exported
         此broadcastReceiver能否接收其他App的发出的广播-->
@@ -76,6 +82,8 @@
                 <action android:name="com.yung.android.example.orderedbroadcast" />
             </intent-filter>
         </receiver>
+
+        <service android:name=".service.LifeCycleService" />
 
 
     </application>

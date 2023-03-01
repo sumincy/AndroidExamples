@@ -1,12 +1,20 @@
 [
   {
     "name": "Activity",
-    "path": "/basic/activity",
-    "description": "activity 使用"
+    "path": "/basic/examples",
+    "list_json": "activity_example.json",
+    "description": ""
   },
   {
     "name": "BroadCastReceiver",
-    "path": "/basic/broadcastreceiver",
-    "description": "activity 使用"
+    "path": "/basic/examples",
+    "list_json": "broadcast_example.json",
+    "description": ""
+  },
+  {
+    "name": "Service",
+    "path": "/basic/examples",
+    "list_json": "service_example.json",
+    "description": ""
   }
 ]
