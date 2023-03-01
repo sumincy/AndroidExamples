@@ -1,12 +1,12 @@
 [
   {
     "name": "Activity",
-    "path": "/basic/activityexamples",
+    "path": "/basic/activity",
     "description": "activity 使用"
   },
   {
     "name": "BroadCastReceiver",
-    "path": "/basic/activityexamples",
+    "path": "/basic/broadcastreceiver",
     "description": "activity 使用"
   }
 ]

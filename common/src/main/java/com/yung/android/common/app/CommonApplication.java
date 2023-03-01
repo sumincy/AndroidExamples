@@ -22,8 +22,6 @@ public class CommonApplication extends Application {
 
     protected List<AppCompatActivity> activityStack = new ArrayList<>();
 
-    private StringBuilder logCache = new StringBuilder();
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -32,10 +30,6 @@ public class CommonApplication extends Application {
 
     public List<AppCompatActivity> getActivityStack() {
         return activityStack;
-    }
-
-    public StringBuilder getLogCache() {
-        return logCache;
     }
 
     @Override

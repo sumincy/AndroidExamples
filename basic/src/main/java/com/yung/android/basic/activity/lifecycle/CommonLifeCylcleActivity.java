@@ -89,5 +89,12 @@ public class CommonLifeCylcleActivity extends LifecycleActivity {
                 finish();
             }
         });
+
+        binding.btnPrintStack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                printStack();
+            }
+        });
     }
 }

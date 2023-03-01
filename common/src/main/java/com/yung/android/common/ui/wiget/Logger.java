@@ -70,8 +70,7 @@ public class Logger extends FrameLayout implements Thread.UncaughtExceptionHandl
     private final Context mContext;
     private long timestamp = 0;
     private View mSrcView;
-    private int mLongClick;
-    private int mShortClick;
+
     private int mFilterClick;
     private Context mCurrentActivity;
     private AlertDialog mFilterDialog;
@@ -86,8 +85,6 @@ public class Logger extends FrameLayout implements Thread.UncaughtExceptionHandl
     private final TextView mTvTitle;
     private final ListView mLvLog;
     private boolean mAutoScroll = true;
-    private static final int SHORT_CLICK = 3;
-    private static final int LONG_CLICK = 3;
 
     public static void setTag(String tag) {
         Logger.tag = tag;
@@ -441,28 +438,13 @@ public class Logger extends FrameLayout implements Thread.UncaughtExceptionHandl
         if (action == MotionEvent.ACTION_DOWN) {
             long l = SystemClock.uptimeMillis();
             long dis = l - timestamp;
-            checkSwitch(dis);
+
             checkFilter(dis, ev.getY());
             timestamp = SystemClock.uptimeMillis();
         }
         return super.dispatchTouchEvent(ev);
     }
 
-    private void checkSwitch(long dis) {
-        if (dis <= 200 && mShortClick < SHORT_CLICK * 2) {
-            mShortClick++;
-            if (mShortClick > SHORT_CLICK * 2) clearClick();
-        }
-        if (dis > 200 && dis <= 2000 && mShortClick == SHORT_CLICK - 1) {
-            mLongClick++;
-            if (mLongClick > LONG_CLICK + 1) clearClick();
-        }
-        if (dis > 2000) clearClick();
-        if (mLongClick == LONG_CLICK + 1 && mShortClick == SHORT_CLICK * 2 - 2) {
-            loggerSwitch();
-        }
-        //i("s:" + mShortClick + "l:" + mLongClick);
-    }
 
     //日志开关切换
     public void loggerSwitch() {
@@ -471,7 +453,10 @@ public class Logger extends FrameLayout implements Thread.UncaughtExceptionHandl
         } else {
             mLogContainer.setVisibility(GONE);
         }
-        clearClick();
+    }
+
+    public void hideLogger() {
+        mLogContainer.setVisibility(GONE);
     }
 
     public static Logger getInstance() {
@@ -489,11 +474,6 @@ public class Logger extends FrameLayout implements Thread.UncaughtExceptionHandl
         } else {
             mFilterClick = 0;
         }
-    }
-
-    private void clearClick() {
-        mLongClick = 0;
-        mShortClick = 0;
     }
 
     private Handler handler = new Handler(Looper.getMainLooper()) {
@@ -575,66 +555,10 @@ public class Logger extends FrameLayout implements Thread.UncaughtExceptionHandl
         // 打印异常信息
         e.printStackTrace();
         // 我们没有处理异常 并且默认异常处理不为空 则交给系统处理
-        if (!handleException(t, e) && mDefaultHandler != null) {
+        if (mDefaultHandler != null) {
             // 系统处理  
             mDefaultHandler.uncaughtException(t, e);
         }
-    }
-
-    /*自己处理崩溃事件*/
-    private boolean handleException(final Thread t, final Throwable e) {
-        if (e == null) {
-            return false;
-        }
-        if (null == mCurrentActivity) {
-            Uri content_url = Uri.parse("http://127.0.0.1:45678");
-            Intent intent = new Intent();
-            intent.setFlags(Intent.FLAG_ACTIVITY_TASK_ON_HOME);
-            intent.setAction("android.intent.action.VIEW");
-            intent.setData(content_url);
-            mContext.startActivity(intent);
-        }
-        new Thread() {
-            @Override
-            public void run() {
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                PrintStream printStream = new PrintStream(baos);
-                e.printStackTrace(printStream);
-                String s = baos.toString();
-                String[] split = s.split("\t");
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < split.length; i++) {
-                    String s1 = split[i];
-                    if ((!s1.contains("android.") && !s1.contains("java."))
-                            && s1.contains("at") && i > 0) {
-                        s1 = String.format("<br> <font color='#ff0000'>%s</font>", s1);
-                    }
-                    sb.append(s1).append("\t ");
-                }
-                if (null == mCurrentActivity) {
-                    showInWeb(sb.toString(), t, e);
-                    return;
-                }
-                Spanned spanned = Html.fromHtml(sb.toString());
-                Looper.prepare();
-                Toast.makeText(mCurrentActivity, "APP 崩溃", Toast.LENGTH_LONG)
-                        .show();
-                AlertDialog.Builder builder = new AlertDialog.Builder(mCurrentActivity);
-                builder.setTitle("App Crash,Log:");
-                builder.setMessage(spanned);
-                builder.setPositiveButton("关闭app", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        mDefaultHandler.uncaughtException(t, e);
-                        //Process.killProcess(Process.myPid());
-                    }
-                });
-                builder.setCancelable(false);
-                builder.show();
-                Looper.loop();
-            }
-        }.start();
-        return true;
     }
 
 

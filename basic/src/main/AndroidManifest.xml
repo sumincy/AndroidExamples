@@ -4,14 +4,15 @@
     <application>
         <activity android:name=".activity.ActivityExamplesActivity" />
 
+        <activity android:name=".activity.BroadcastExamplesActivity" />
 
         <activity android:name=".activity.lifecycle.CommonLifeCylcleActivity" />
 
-                <activity
-                    android:name=".activity.lifecycle.ConfigChangeLifeCylcleActivity"
-                    android:configChanges="orientation" />
+        <activity
+            android:name=".activity.lifecycle.ConfigChangeLifeCylcleActivity"
+            android:configChanges="orientation" />
 
-<!--        <activity-->
+        <!--        <activity-->
         <!--            android:name=".activity.lifecycle.ConfigChangeLifeCylcleActivity"-->
         <!--            android:configChanges="orientation|keyboardHidden|screenSize" />-->
 
@@ -32,6 +33,49 @@
         <activity
             android:name=".activity.launchmode.SingleInstanceActivity"
             android:launchMode="singleInstance" />
+
+
+        <activity android:name=".activity.broadcast.StaticBroadcastActivity" />
+
+        <activity android:name=".activity.broadcast.DynamicBroadcastActivity" />
+
+        <activity android:name=".activity.broadcast.OrderedBroadCastActivity" />
+
+        <!--
+        exported
+        此broadcastReceiver能否接收其他App的发出的广播-->
+
+        <receiver
+            android:name=".receiver.MyBroadCastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.yung.android.example.staticbroadcast" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".receiver.HighLevelBroadCastReceiver"
+            android:exported="true">
+            <intent-filter android:priority="9">
+                <action android:name="com.yung.android.example.orderedbroadcast" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".receiver.MiddleLevelBroadCastReceiver"
+            android:exported="true">
+            <intent-filter android:priority="6">
+                <action android:name="com.yung.android.example.orderedbroadcast" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".receiver.LowerLevelBroadCastReceiver"
+            android:exported="true">
+            <intent-filter android:priority="3">
+                <action android:name="com.yung.android.example.orderedbroadcast" />
+            </intent-filter>
+        </receiver>
 
 
     </application>

@@ -64,7 +64,6 @@ public class ConfigChangeLifeCylcleActivity extends LifecycleActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Logger.i("------onCreate()------" + this);
         binding = ActivityConfigchangesLifecycleBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -86,59 +85,5 @@ public class ConfigChangeLifeCylcleActivity extends LifecycleActivity {
                 finish();
             }
         });
-    }
-
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        Logger.i("------onSaveInstanceState()------" + this);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        Logger.i("------onRestoreInstanceState()------" + this);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Logger.i("------onStart()------" + this);
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Logger.i("------onRestart()------" + this);
-    }
-
-    @Override
-    public void onConfigurationChanged(@NonNull Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        Logger.i("------onConfigurationChanged()------" + this);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Logger.i("------onResume()------" + this);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Logger.i("------onPause()------" + this);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Logger.i("------onStop()------" + this);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Logger.i("------onDestroy()------" + this);
     }
 }

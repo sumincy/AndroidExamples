@@ -56,24 +56,13 @@ public class MainActivity extends AppCompatActivity {
         mainListAdapter = new PageItemsAdapter(this, pageItems);
         binding.rcvMain.setAdapter(mainListAdapter);
 
-
-        EasyFloat.with(this).setLayout(com.yung.android.common.R.layout.layout_float_button, new OnInvokeView() {
-                    @Override
-                    public void invoke(View view) {
-                        view.findViewById(com.yung.android.common.R.id.tv_log).setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Logger.getInstance().loggerSwitch();
-                            }
-                        });
-                    }
-                })
-                .setGravity(Gravity.TOP | Gravity.RIGHT)
-                .setShowPattern(ShowPattern.ALL_TIME)
-                .setTag(TAG)
-                .show();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        EasyFloat.dismiss();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -107,7 +96,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EasyFloat.dismiss();
     }
-    
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        EasyFloat.hide(TAG);
+        EasyFloat.dismiss();
+        Logger.getInstance().hideLogger();
+    }
 }

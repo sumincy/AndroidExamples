@@ -12,25 +12,11 @@
         app:flChildSpacing="2dp">
 
         <Button
-            android:id="@+id/btn_jump"
+            android:id="@+id/btn_send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="跳转" />
-
-        <Button
-            android:id="@+id/btn_close"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:text="结束" />
-
-        <Button
-            android:id="@+id/btn_print_stack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:text="打印当前堆栈" />
-
+            android:text="发送广播"
+            android:textSize="12sp" />
 
     </com.nex3z.flowlayout.FlowLayout>
 

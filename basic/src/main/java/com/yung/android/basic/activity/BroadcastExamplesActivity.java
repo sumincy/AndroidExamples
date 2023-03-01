@@ -12,13 +12,13 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.lzf.easyfloat.EasyFloat;
 import com.lzf.easyfloat.enums.ShowPattern;
 import com.lzf.easyfloat.interfaces.OnInvokeView;
+import com.yung.android.basic.databinding.ActivityBroadcastExamplesBinding;
 import com.yung.android.basic.databinding.ActivityExamplesBinding;
 import com.yung.android.common.app.CommonApplication;
 import com.yung.android.common.entity.PageItem;
 import com.yung.android.common.entity.PagePath;
 import com.yung.android.common.ui.adapter.PageItemsAdapter;
 import com.yung.android.common.ui.wiget.Logger;
-import com.yung.android.common.util.AssetsUtil;
 
 import java.util.List;
 
@@ -31,28 +31,29 @@ import java.util.List;
  *    version : 1.0
  * <pre>
  */
-@Route(path = PagePath.ACTIVITY_EXAMPLES)
-public class ActivityExamplesActivity extends AppCompatActivity {
+@Route(path = PagePath.BROADCAST_EXAMPLES)
+public class BroadcastExamplesActivity extends AppCompatActivity {
 
-    private ActivityExamplesBinding binding;
+    private ActivityBroadcastExamplesBinding binding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityExamplesBinding.inflate(getLayoutInflater());
+        binding = ActivityBroadcastExamplesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         initViews();
     }
 
     private void initViews() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        binding.rcvActivityExamples.setLayoutManager(linearLayoutManager);
+        binding.rcvExamples.setLayoutManager(linearLayoutManager);
 
-        List<PageItem> pageItems = PageItem.getPageItems(getApplicationContext(), "activity_example.json");
+        List<PageItem> pageItems = PageItem.getPageItems(getApplicationContext(), "broadcast_example.json");
 
         PageItemsAdapter pageItemsAdapter = new PageItemsAdapter(this, pageItems);
 
-        binding.rcvActivityExamples.setAdapter(pageItemsAdapter);
+        binding.rcvExamples.setAdapter(pageItemsAdapter);
 
 
         EasyFloat.with(this).setLayout(com.yung.android.common.R.layout.layout_float_button, new OnInvokeView() {
@@ -70,5 +71,4 @@ public class ActivityExamplesActivity extends AppCompatActivity {
                 .setShowPattern(ShowPattern.ALL_TIME)
                 .show();
     }
-
 }

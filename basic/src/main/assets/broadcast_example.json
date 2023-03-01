@@ -1,0 +1,22 @@
+[
+  {
+    "name": "BroadcastReceiver 静态注册",
+    "path": "/basic/broadcast/static",
+    "description": ""
+  },
+  {
+    "name": "BroadcastReceiver 动态注册",
+    "path": "/basic/broadcast/dynamic",
+    "description": ""
+  },
+  {
+    "name": "BroadcastReceiver 有序广播",
+    "path": "/basic/broadcast/ordered",
+    "description": ""
+  },
+  {
+    "name": "LocalBroadcastReceiver",
+    "path": "/basic/broadcast/local",
+    "description": ""
+  }
+]

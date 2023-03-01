@@ -14,8 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.lzf.easyfloat.EasyFloat;
 import com.lzf.easyfloat.enums.ShowPattern;
 import com.lzf.easyfloat.interfaces.OnInvokeView;
+import com.yung.android.basic.activity.broadcast.StaticBroadcastActivity;
 import com.yung.android.common.app.CommonApplication;
 import com.yung.android.common.ui.wiget.Logger;
+import com.yung.android.common.util.NameUtil;
 
 import java.util.List;
 
@@ -31,7 +33,7 @@ import java.util.List;
 public class LifecycleActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getName();
 
-    private final String NAME = this.getClass().getSimpleName() + "@" + Integer.toHexString(hashCode());
+    private final String NAME = NameUtil.getName(this);
 
     protected List<AppCompatActivity> activityStack;
 
@@ -54,7 +56,22 @@ public class LifecycleActivity extends AppCompatActivity {
 
     protected void printStack() {
         Logger.e("---当前stack中包含：" + activityStack.size() + "个Activity---");
-        Logger.d("---" + activityStack.toString() + "---");
+        //TODO
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("[");
+        for (int i = 0; i < activityStack.size(); i++) {
+            AppCompatActivity activity = activityStack.get(i);
+
+            String name = activity.getClass().getSimpleName() + "@" + Integer.toHexString(activity.hashCode());
+            sb.append(name);
+            if (i < activityStack.size() - 1) {
+                sb.append("--->");
+            }
+        }
+        sb.append("]");
+        Logger.d(sb.toString());
+
     }
 
     protected void printCurrent() {
