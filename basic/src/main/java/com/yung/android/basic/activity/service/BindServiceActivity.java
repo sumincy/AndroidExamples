@@ -60,20 +60,21 @@ public class BindServiceActivity extends AppCompatActivity {
                 Intent intent = new Intent(BindServiceActivity.this, LifeCycleService.class);
                 isBind = bindService(intent, myConnection, Service.BIND_AUTO_CREATE);
 
-                Logger.d(NameUtil.getName(BindServiceActivity.this) + "：bindService()  isBind" + isBind);
+                Logger.d(NameUtil.getName(BindServiceActivity.this) + "：bindService()  isBind：" + isBind);
             }
         });
 
         binding.btnUnbind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Logger.d(NameUtil.getName(BindServiceActivity.this) + "：unbindService()  isBind：" + isBind);
 
                 if (null != myConnection && isBind) {
                     unbindService(myConnection);
                     myConnection = null;
                     isBind = false;
                 }
+
+                Logger.d(NameUtil.getName(BindServiceActivity.this) + "：unbindService()  isBind：" + isBind);
             }
         });
     }
@@ -100,7 +101,7 @@ public class BindServiceActivity extends AppCompatActivity {
         super.onDestroy();
         if (null != myConnection && isBind) {
             unbindService(myConnection);
-            Logger.e(NameUtil.getName(this) + "：unbindService()  isBind" + isBind);
+            Logger.e(NameUtil.getName(this) + "：unbindService()  isBind：" + isBind);
         }
     }
 }

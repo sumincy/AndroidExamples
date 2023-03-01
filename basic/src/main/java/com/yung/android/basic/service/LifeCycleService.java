@@ -49,7 +49,7 @@ public class LifeCycleService extends Service {
 
                     try {
                         Thread.sleep(1000);
-                        Logger.e(NameUtil.getName(thread) + "：run()  count：" + count);
+                        Logger.e(NameUtil.getName(LifeCycleService.this) + "--" + NameUtil.getName(thread) + "：run()  count：" + count);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
