@@ -27,10 +27,10 @@ public class HighLevelBroadCastReceiver extends BroadcastReceiver {
         Logger.e(msg);
 
         // 1.abortBroadcast 开启后 middle lower将收不到
-//        abortBroadcast();
-//        Logger.e(NameUtil.getName(this) + "：abortBroadcast() 中断广播");
+        abortBroadcast();
+        Logger.e(NameUtil.getName(this) + "：abortBroadcast() 中断广播");
 
-        //2.高级别广播修改 广播数据
+        //2.高级别广播修改 数据
         setResultData("A");
         Logger.d(NameUtil.getName(this) + "：setResultData()：A");
 

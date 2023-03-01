@@ -18,6 +18,13 @@
             android:text="发送有序广播"
             android:textSize="12sp" />
 
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送普通广播"
+            android:textSize="12sp" />
+
     </com.nex3z.flowlayout.FlowLayout>
 
 </LinearLayout>
