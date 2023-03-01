@@ -4,6 +4,8 @@ import android.app.Application;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.yung.android.common.ui.wiget.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +27,7 @@ public class CommonApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Logger.init(this);
     }
 
     public List<AppCompatActivity> getActivityStack() {

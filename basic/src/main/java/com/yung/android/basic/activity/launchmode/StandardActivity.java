@@ -29,8 +29,6 @@ public class StandardActivity extends LifecycleActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.i(TAG, "------onCreate------" + TAG);
-
         binding = ActivityStandradBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         initViews();

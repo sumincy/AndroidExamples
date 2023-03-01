@@ -29,18 +29,10 @@ public class SingleInstanceActivity extends LifecycleActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.i(TAG, "------onCreate------" + TAG);
-
         binding = ActivitySingleInstanceBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         initViews();
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        Log.i(TAG, "------onNewIntent------" + TAG);
     }
 
     private void initViews() {

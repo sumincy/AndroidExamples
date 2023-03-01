@@ -10,13 +10,19 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.lzf.easyfloat.EasyFloat;
+import com.lzf.easyfloat.enums.ShowPattern;
+import com.lzf.easyfloat.interfaces.OnInvokeView;
 import com.yung.android.common.entity.PageItem;
 import com.yung.android.common.ui.adapter.PageItemsAdapter;
+import com.yung.android.common.ui.wiget.Logger;
 import com.yung.android.examples.R;
 import com.yung.android.examples.databinding.ActivityMainBinding;
 
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import java.util.List;
 
@@ -26,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
     private PageItemsAdapter mainListAdapter;
+
+    private final String TAG = "examples";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +51,27 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         binding.rcvMain.setLayoutManager(linearLayoutManager);
 
-        List<PageItem> pageItems = PageItem.getPageItems(getApplicationContext(),"main_example.json");
+        List<PageItem> pageItems = PageItem.getPageItems(getApplicationContext(), "main_example.json");
 
         mainListAdapter = new PageItemsAdapter(this, pageItems);
         binding.rcvMain.setAdapter(mainListAdapter);
 
+
+        EasyFloat.with(this).setLayout(com.yung.android.common.R.layout.layout_float_button, new OnInvokeView() {
+                    @Override
+                    public void invoke(View view) {
+                        view.findViewById(com.yung.android.common.R.id.tv_log).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Logger.getInstance().loggerSwitch();
+                            }
+                        });
+                    }
+                })
+                .setGravity(Gravity.TOP | Gravity.RIGHT)
+                .setShowPattern(ShowPattern.ALL_TIME)
+                .setTag(TAG)
+                .show();
     }
 
 
@@ -79,4 +103,11 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EasyFloat.dismiss();
+    }
+    
 }

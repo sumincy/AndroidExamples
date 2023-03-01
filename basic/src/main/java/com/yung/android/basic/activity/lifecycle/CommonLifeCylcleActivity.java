@@ -13,6 +13,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.yung.android.basic.activity.LifecycleActivity;
 import com.yung.android.basic.databinding.ActivityCommonLifecycleBinding;
 import com.yung.android.common.entity.PagePath;
+import com.yung.android.common.ui.wiget.Logger;
 
 import java.util.UUID;
 
@@ -66,7 +67,7 @@ public class CommonLifeCylcleActivity extends LifecycleActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i(TAG, "------onCreate------" + id);
+
         binding = ActivityCommonLifecycleBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -88,54 +89,5 @@ public class CommonLifeCylcleActivity extends LifecycleActivity {
                 finish();
             }
         });
-    }
-
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        Log.i(TAG, "------onSaveInstanceState------" + id);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        Log.i(TAG, "------onRestoreInstanceState------" + id);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.i(TAG, "------onStart------" + id);
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.i(TAG, "------onRestart------" + id);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i(TAG, "------onResume------" + id);
-        binding.tvLog.setText(getLifecycleLog());
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.i(TAG, "------onPause------" + id);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.i(TAG, "------onStop------" + id);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.i(TAG, "------onDestroy------" + id);
     }
 }

@@ -4,12 +4,18 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.lzf.easyfloat.EasyFloat;
+import com.lzf.easyfloat.enums.ShowPattern;
+import com.lzf.easyfloat.interfaces.OnInvokeView;
 import com.yung.android.common.app.CommonApplication;
+import com.yung.android.common.ui.wiget.Logger;
 
 import java.util.List;
 
@@ -25,108 +31,90 @@ import java.util.List;
 public class LifecycleActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getName();
 
-    protected List<AppCompatActivity> activityStack;
+    private final String NAME = this.getClass().getSimpleName() + "@" + Integer.toHexString(hashCode());
 
-    private StringBuilder sb;
+    protected List<AppCompatActivity> activityStack;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         activityStack = ((CommonApplication) getApplication()).getActivityStack();
-        sb = ((CommonApplication) getApplication()).getLogCache();
-
         activityStack.add(this);
 
-        sb.append(String.format("%s：onCreate()", this));
-        sb.append(System.getProperty("line.separator"));
+        Logger.i("- onCreate() -" + NAME);
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-
-        sb.append(String.format("%s：onNewIntent()", this));
-        sb.append(System.getProperty("line.separator"));
+        Logger.i("- onNewIntent() -" + NAME);
     }
 
 
     protected void printStack() {
-        Log.i(TAG, "------" + activityStack.toString() + "------");
+        Logger.e("---当前stack中包含：" + activityStack.size() + "个Activity---");
+        Logger.d("---" + activityStack.toString() + "---");
     }
 
     protected void printCurrent() {
-        Log.i(TAG, "------" + activityStack.toString() + "------");
-    }
-
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        sb.append(String.format("%s：onSaveInstanceState()", this));
-        sb.append(System.getProperty("line.separator"));
-    }
-
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        sb.append(String.format("%s：onRestoreInstanceState()", this));
-        sb.append(System.getProperty("line.separator"));
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        sb.append(String.format("%s：onStart()", this));
-        sb.append(System.getProperty("line.separator"));
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        sb.append(String.format("%s：onRestart()", this));
-        sb.append(System.getProperty("line.separator"));
+        Log.i(TAG, "------" + this + "------");
     }
 
     @Override
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        sb.append(String.format("%s：onConfigurationChanged()", this));
-        sb.append(System.getProperty("line.separator"));
+
+        Logger.i("- onConfigurationChanged() -" + NAME);
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Logger.i("- onSaveInstanceState() -" + NAME);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Logger.i("- onRestoreInstanceState() -" + NAME);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Logger.i("- onStart() -" + NAME);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Logger.i("- onRestart() -" + NAME);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        sb.append(String.format("%s：onResume()", this));
-        sb.append(System.getProperty("line.separator"));
+        Logger.i("- onResume() -" + NAME);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
-        sb.append(String.format("%s：onPause()", this));
-        sb.append(System.getProperty("line.separator"));
+        Logger.i("- onPause() -" + NAME);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-
-        sb.append(String.format("%s：onStop()", this));
-        sb.append(System.getProperty("line.separator"));
+        Logger.i("- onStop() -" + NAME);
     }
 
     @Override
     protected void onDestroy() {
         activityStack.remove(this);
-
-        sb.append(String.format("%s：onDestroy()", this));
-        sb.append(System.getProperty("line.separator"));
         super.onDestroy();
+        Logger.i("- onDestroy() -" + NAME);
     }
 
-    protected String getLifecycleLog() {
-        return sb.toString();
-    }
 }

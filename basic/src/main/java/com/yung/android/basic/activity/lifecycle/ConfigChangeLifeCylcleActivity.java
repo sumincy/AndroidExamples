@@ -17,6 +17,7 @@ import com.yung.android.basic.databinding.ActivityCommonLifecycleBinding;
 import com.yung.android.basic.databinding.ActivityConfigchangesLifecycleBinding;
 import com.yung.android.common.app.CommonApplication;
 import com.yung.android.common.entity.PagePath;
+import com.yung.android.common.ui.wiget.Logger;
 
 import java.util.UUID;
 
@@ -63,7 +64,7 @@ public class ConfigChangeLifeCylcleActivity extends LifecycleActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i(TAG, "------onCreate------" + id);
+        Logger.i("------onCreate()------" + this);
         binding = ActivityConfigchangesLifecycleBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -90,57 +91,54 @@ public class ConfigChangeLifeCylcleActivity extends LifecycleActivity {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        Log.i(TAG, "------onSaveInstanceState------" + id);
+        Logger.i("------onSaveInstanceState()------" + this);
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        Log.i(TAG, "------onRestoreInstanceState------" + id);
+        Logger.i("------onRestoreInstanceState()------" + this);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i(TAG, "------onStart------" + id);
+        Logger.i("------onStart()------" + this);
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.i(TAG, "------onRestart------" + id);
+        Logger.i("------onRestart()------" + this);
     }
 
     @Override
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        Log.i(TAG, "------onConfigurationChanged------" + id);
-        binding.tvLog.setText(getLifecycleLog());
+        Logger.i("------onConfigurationChanged()------" + this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i(TAG, "------onResume------" + id);
-
-        binding.tvLog.setText(getLifecycleLog());
+        Logger.i("------onResume()------" + this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.i(TAG, "------onPause------" + id);
+        Logger.i("------onPause()------" + this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.i(TAG, "------onStop------" + id);
+        Logger.i("------onStop()------" + this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i(TAG, "------onDestroy------" + id);
+        Logger.i("------onDestroy()------" + this);
     }
 }

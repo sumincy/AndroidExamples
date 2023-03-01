@@ -37,12 +37,6 @@ public class SingleTopActivity extends LifecycleActivity {
         initViews();
     }
 
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        Log.i(TAG, "------onNewIntent------" + TAG);
-    }
-
     private void initViews() {
 
         binding.btnJumpStandard.setOnClickListener(new View.OnClickListener() {
