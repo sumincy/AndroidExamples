@@ -16,5 +16,11 @@
     "path": "/basic/examples",
     "list_json": "service_example.json",
     "description": ""
+  },
+  {
+    "name": "ContentProvider",
+    "path": "/basic/examples",
+    "list_json": "provider_example.json",
+    "description": ""
   }
 ]

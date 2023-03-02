@@ -33,5 +33,7 @@ public class PagePath {
 
     public static final String ACTIVITY_SERVICE_INTENT = "/basic/service/intent";
 
+    public static final String ACTIVITY_COMMON_PROVIDER = "/basic/provider/common";
+
 
 }

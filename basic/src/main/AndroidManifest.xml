@@ -2,57 +2,42 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application>
-        <activity android:name=".activity.ExamplesActivity" />
 
-        <!--        <activity android:name=".activity.BroadcastExamplesActivity" />-->
 
+        <activity android:name=".activity.ExamplesActivity" /> <!-- <activity android:name=".activity.BroadcastExamplesActivity" /> -->
         <activity android:name=".activity.lifecycle.CommonLifeCylcleActivity" />
-
         <activity
             android:name=".activity.lifecycle.ConfigChangeLifeCylcleActivity"
-            android:configChanges="orientation" />
-
-        <!--        <activity-->
-        <!--            android:name=".activity.lifecycle.ConfigChangeLifeCylcleActivity"-->
-        <!--            android:configChanges="orientation|keyboardHidden|screenSize" />-->
-
+            android:configChanges="orientation" /> <!-- <activity -->
+        <!-- android:name=".activity.lifecycle.ConfigChangeLifeCylcleActivity" -->
+        <!-- android:configChanges="orientation|keyboardHidden|screenSize" /> -->
         <activity android:name=".activity.launchmode.LaunchModeActivity" />
-
         <activity
             android:name=".activity.launchmode.StandardActivity"
             android:launchMode="standard" />
-
         <activity
             android:name=".activity.launchmode.SingleTopActivity"
             android:launchMode="singleTop" />
-
         <activity
             android:name=".activity.launchmode.SingleTaskActivity"
             android:launchMode="singleTask" />
-
         <activity
             android:name=".activity.launchmode.SingleInstanceActivity"
             android:launchMode="singleInstance" />
-
-
         <activity android:name=".activity.broadcast.StaticBroadcastActivity" />
-
         <activity android:name=".activity.broadcast.DynamicBroadcastActivity" />
-
         <activity android:name=".activity.broadcast.OrderedBroadCastActivity" />
-
         <activity android:name=".activity.broadcast.LocalBroadCastReceiverActivity" />
-
         <activity android:name=".activity.service.BindServiceActivity" />
-
         <activity android:name=".activity.service.StartServiceActivity" />
-
         <activity android:name=".activity.service.IntentServiceActivity" />
+
+        <activity android:name=".activity.provider.CommonProviderActivity" />
 
         <!--
         exported
-        此broadcastReceiver能否接收其他App的发出的广播-->
-
+        此broadcastReceiver能否接收其他App的发出的广播
+        -->
         <receiver
             android:name=".receiver.MyBroadCastReceiver"
             android:exported="false">
@@ -60,7 +45,6 @@
                 <action android:name="com.yung.android.example.staticbroadcast" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name=".receiver.HighLevelBroadCastReceiver"
             android:exported="true">
@@ -68,7 +52,6 @@
                 <action android:name="com.yung.android.example.orderedbroadcast" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name=".receiver.MiddleLevelBroadCastReceiver"
             android:exported="true">
@@ -76,7 +59,6 @@
                 <action android:name="com.yung.android.example.orderedbroadcast" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name=".receiver.LowerLevelBroadCastReceiver"
             android:exported="true">
@@ -86,7 +68,6 @@
         </receiver>
 
         <service android:name=".service.LifeCycleService" />
-
         <service
             android:name=".service.MyIntentService"
             android:exported="true">
@@ -96,5 +77,12 @@
         </service>
 
 
+        <provider
+            android:name=".provider.MyContentProvider"
+            android:authorities="yung.android.provider"
+            android:enabled="true"
+            android:exported="true"></provider>
+
     </application>
+
 </manifest>

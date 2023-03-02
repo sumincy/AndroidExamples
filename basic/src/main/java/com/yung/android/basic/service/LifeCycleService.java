@@ -98,8 +98,8 @@ public class LifeCycleService extends Service {
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         this.quit = true;
+        super.onDestroy();
         Logger.e(NameUtil.getName(this) + "：onDestroy()");
     }
 }
