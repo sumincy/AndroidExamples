@@ -2,9 +2,11 @@ package com.yung.android.basic.activity.provider;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.database.ContentObserver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -45,6 +47,10 @@ public class CommonProviderActivity extends AppCompatActivity {
 
     private ContentResolver resolver;
 
+    private ContentObserver observer;
+
+    private Uri uri;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,11 +59,22 @@ public class CommonProviderActivity extends AppCompatActivity {
 
         resolver = getContentResolver();
 
+        observer = new ContentObserver(new Handler()) {
+            @Override
+            public void onChange(boolean selfChange) {
+                super.onChange(selfChange);
+                Logger.e(NameUtil.getName(this) + "：onChange()");
+            }
+        };
+
+        uri = Uri.parse(MyContentProvider.OPEN_URI);
+
+        resolver.registerContentObserver(uri, true, observer);
+
         initViews();
     }
 
     private void initViews() {
-        Uri uri = Uri.parse(MyContentProvider.OPEN_URI);
 
         Random r = new Random();
 

@@ -70,6 +70,16 @@
             </intent-filter>
         </receiver>
 
+        <receiver
+            android:name=".receiver.SmsReceiver"
+            android:exported="true"
+            android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_DELIVER" />
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
         <service android:name=".service.LifeCycleService" />
         <service
             android:name=".service.MyIntentService"
@@ -84,7 +94,7 @@
             android:name=".provider.MyContentProvider"
             android:authorities="yung.android.provider"
             android:enabled="true"
-            android:exported="true"/>
+            android:exported="true" />
 
     </application>
 

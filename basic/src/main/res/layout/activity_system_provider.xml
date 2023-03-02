@@ -24,6 +24,12 @@
             android:text="获取通话记录"
             android:textSize="12sp" />
 
+        <Button
+            android:id="@+id/btn_get_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取短信"
+            android:textSize="12sp" />
 
     </com.nex3z.flowlayout.FlowLayout>
 
