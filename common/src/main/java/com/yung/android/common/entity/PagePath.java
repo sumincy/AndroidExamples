@@ -35,5 +35,7 @@ public class PagePath {
 
     public static final String ACTIVITY_COMMON_PROVIDER = "/basic/provider/common";
 
+    public static final String ACTIVITY_SYSTEM_PROVIDER = "/basic/provider/system";
+
 
 }

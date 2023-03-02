@@ -1,7 +1,12 @@
 [
   {
-    "name": "CommonProvider",
+    "name": "ContentProvider操作SQLite",
     "path": "/basic/provider/common",
+    "description": ""
+  },
+  {
+    "name": "ContentProvider获取系统应用数据",
+    "path": "/basic/provider/system",
     "description": ""
   }
 ]

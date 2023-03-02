@@ -3,7 +3,6 @@
 
     <application>
 
-
         <activity android:name=".activity.ExamplesActivity" /> <!-- <activity android:name=".activity.BroadcastExamplesActivity" /> -->
         <activity android:name=".activity.lifecycle.CommonLifeCylcleActivity" />
         <activity
@@ -33,6 +32,7 @@
         <activity android:name=".activity.service.IntentServiceActivity" />
 
         <activity android:name=".activity.provider.CommonProviderActivity" />
+        <activity android:name=".activity.provider.SystemProviderActivity" />
 
         <!--
         exported
@@ -45,6 +45,7 @@
                 <action android:name="com.yung.android.example.staticbroadcast" />
             </intent-filter>
         </receiver>
+
         <receiver
             android:name=".receiver.HighLevelBroadCastReceiver"
             android:exported="true">
@@ -52,6 +53,7 @@
                 <action android:name="com.yung.android.example.orderedbroadcast" />
             </intent-filter>
         </receiver>
+
         <receiver
             android:name=".receiver.MiddleLevelBroadCastReceiver"
             android:exported="true">
@@ -59,6 +61,7 @@
                 <action android:name="com.yung.android.example.orderedbroadcast" />
             </intent-filter>
         </receiver>
+
         <receiver
             android:name=".receiver.LowerLevelBroadCastReceiver"
             android:exported="true">
@@ -81,7 +84,7 @@
             android:name=".provider.MyContentProvider"
             android:authorities="yung.android.provider"
             android:enabled="true"
-            android:exported="true"></provider>
+            android:exported="true"/>
 
     </application>
 

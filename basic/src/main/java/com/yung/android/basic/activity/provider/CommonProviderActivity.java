@@ -125,6 +125,7 @@ public class CommonProviderActivity extends AppCompatActivity {
                     customers.add(entity);
 
                 }
+                cursor.close();
 
                 Logger.d(NameUtil.getName(CommonProviderActivity.this) + "：query()：" + customers);
 
