@@ -28,6 +28,7 @@ import com.yung.android.common.util.NameUtil;
  */
 public class LifeCycleService extends Service {
 
+    private String name;
 
     private Thread thread;
     private boolean quit;
@@ -49,7 +50,7 @@ public class LifeCycleService extends Service {
 
                     try {
                         Thread.sleep(1000);
-                        Logger.e(NameUtil.getName(LifeCycleService.this) + "--" + NameUtil.getName(thread) + "：run()  count：" + count);
+                        Logger.e(NameUtil.getName( LifeCycleService.this) + "--" + NameUtil.getName(thread) + "：run()  count：" + count);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -66,6 +67,8 @@ public class LifeCycleService extends Service {
     public IBinder onBind(Intent intent) {
         Logger.e(NameUtil.getName(this) + "：onBind()");
         mBinder = new MyBinder();
+        name = "Bind";
+
         return mBinder;
     }
 
@@ -78,6 +81,8 @@ public class LifeCycleService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Logger.e(NameUtil.getName(this) + "：onStartCommand()");
+        name = "Start";
+
         return super.onStartCommand(intent, flags, startId);
     }
 

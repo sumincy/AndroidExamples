@@ -4,7 +4,7 @@
     <application>
         <activity android:name=".activity.ExamplesActivity" />
 
-<!--        <activity android:name=".activity.BroadcastExamplesActivity" />-->
+        <!--        <activity android:name=".activity.BroadcastExamplesActivity" />-->
 
         <activity android:name=".activity.lifecycle.CommonLifeCylcleActivity" />
 
@@ -47,6 +47,8 @@
 
         <activity android:name=".activity.service.StartServiceActivity" />
 
+        <activity android:name=".activity.service.IntentServiceActivity" />
+
         <!--
         exported
         此broadcastReceiver能否接收其他App的发出的广播-->
@@ -84,6 +86,14 @@
         </receiver>
 
         <service android:name=".service.LifeCycleService" />
+
+        <service
+            android:name=".service.MyIntentService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.yung.android.intent" />
+            </intent-filter>
+        </service>
 
 
     </application>
