@@ -3,7 +3,7 @@
 
     <application>
 
-        <activity android:name=".activity.ExamplesActivity" /> <!-- <activity android:name=".activity.BroadcastExamplesActivity" /> -->
+        <!-- <activity android:name=".activity.BroadcastExamplesActivity" /> -->
         <activity android:name=".activity.lifecycle.CommonLifeCylcleActivity" />
         <activity
             android:name=".activity.lifecycle.ConfigChangeLifeCylcleActivity"

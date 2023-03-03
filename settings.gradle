@@ -34,3 +34,4 @@ rootProject.name = "AndroidExamples"
 include ':app'
 include ':basic'
 include ':common'
+include ':task'

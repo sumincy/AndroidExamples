@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Activity",
+    "path": "/main/list",
+    "list_json": "activity_example.json",
+    "description": ""
+  },
+  {
+    "name": "BroadCastReceiver",
+    "path": "/main/list",
+    "list_json": "broadcast_example.json",
+    "description": ""
+  },
+  {
+    "name": "Service",
+    "path": "/main/list",
+    "list_json": "service_example.json",
+    "description": ""
+  },
+  {
+    "name": "ContentProvider",
+    "path": "/main/list",
+    "list_json": "provider_example.json",
+    "description": ""
+  }
+]

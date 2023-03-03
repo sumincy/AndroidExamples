@@ -32,6 +32,5 @@ public class MyApplication extends CommonApplication {
     @Override
     public void onTerminate() {
         super.onTerminate();
-        EasyFloat.dismiss();
     }
 }

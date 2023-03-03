@@ -56,6 +56,7 @@ public class PageItemsAdapter extends RecyclerView.Adapter<PageItemsAdapter.View
             public void onClick(View v) {
                 ARouter.getInstance().build(pageItem.getPath())
                         .withString("list_json", pageItem.getListJson())
+                        .withString("name", pageItem.getName())
                         .navigation();
             }
         });

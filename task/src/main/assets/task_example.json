@@ -1,0 +1,8 @@
+[
+  {
+    "name": "Handler",
+    "path": "/main/list",
+    "list_json": "handler_example.json",
+    "description": ""
+  }
+]

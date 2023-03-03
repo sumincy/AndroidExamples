@@ -7,8 +7,11 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
+import com.hjq.bar.OnTitleBarListener;
+import com.hjq.bar.TitleBar;
 import com.yung.android.basic.activity.LifecycleActivity;
 import com.yung.android.basic.databinding.ActivitySingleInstanceBinding;
+import com.yung.android.common.ui.wiget.Logger;
 
 /**
  * <pre>
@@ -36,6 +39,25 @@ public class SingleInstanceActivity extends LifecycleActivity {
     }
 
     private void initViews() {
+        binding.titleBar.setOnTitleBarListener(new OnTitleBarListener() {
+            @Override
+            public void onLeftClick(TitleBar titleBar) {
+                OnTitleBarListener.super.onLeftClick(titleBar);
+                finish();
+            }
+
+            @Override
+            public void onTitleClick(TitleBar titleBar) {
+                OnTitleBarListener.super.onTitleClick(titleBar);
+            }
+
+            @Override
+            public void onRightClick(TitleBar titleBar) {
+                OnTitleBarListener.super.onRightClick(titleBar);
+                Logger.getInstance().loggerSwitch();
+            }
+        });
+
         binding.btnJumpStandard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

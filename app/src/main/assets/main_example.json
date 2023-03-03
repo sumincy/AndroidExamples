@@ -1,26 +1,14 @@
 [
   {
-    "name": "Activity",
-    "path": "/basic/examples",
-    "list_json": "activity_example.json",
+    "name": "Basic",
+    "path": "/main/list",
+    "list_json": "basic_example.json",
     "description": ""
   },
   {
-    "name": "BroadCastReceiver",
-    "path": "/basic/examples",
-    "list_json": "broadcast_example.json",
-    "description": ""
-  },
-  {
-    "name": "Service",
-    "path": "/basic/examples",
-    "list_json": "service_example.json",
-    "description": ""
-  },
-  {
-    "name": "ContentProvider",
-    "path": "/basic/examples",
-    "list_json": "provider_example.json",
+    "name": "Task",
+    "path": "/main/list",
+    "list_json": "task_example.json",
     "description": ""
   }
 ]

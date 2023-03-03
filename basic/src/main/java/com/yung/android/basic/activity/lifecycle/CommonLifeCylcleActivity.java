@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.hjq.bar.OnTitleBarListener;
+import com.hjq.bar.TitleBar;
 import com.yung.android.basic.activity.LifecycleActivity;
 import com.yung.android.basic.databinding.ActivityCommonLifecycleBinding;
 import com.yung.android.common.entity.PagePath;
@@ -75,6 +77,25 @@ public class CommonLifeCylcleActivity extends LifecycleActivity {
     }
 
     private void initViews() {
+        binding.titleBar.setOnTitleBarListener(new OnTitleBarListener() {
+            @Override
+            public void onLeftClick(TitleBar titleBar) {
+                OnTitleBarListener.super.onLeftClick(titleBar);
+                finish();
+            }
+
+            @Override
+            public void onTitleClick(TitleBar titleBar) {
+                OnTitleBarListener.super.onTitleClick(titleBar);
+            }
+
+            @Override
+            public void onRightClick(TitleBar titleBar) {
+                OnTitleBarListener.super.onRightClick(titleBar);
+                Logger.getInstance().loggerSwitch();
+            }
+        });
+
         binding.btnJump.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

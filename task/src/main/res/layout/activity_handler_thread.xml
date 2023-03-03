@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.hjq.bar.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:leftIcon="@null"
+        app:leftTitle="返回"
+        app:leftTitleColor="@color/black"
+        app:leftTitleSize="16sp"
+        app:rightTitle="日志"
+        app:rightTitleColor="@color/black"
+        app:rightTitleSize="16sp"
+        app:title=""
+        app:titleColor="@color/black"
+        app:titleSize="16sp" />
+
+    <com.nex3z.flowlayout.FlowLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:flChildSpacing="2dp">
+
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loop"
+            android:textSize="12sp" />
+
+
+        <Button
+            android:id="@+id/btn_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stop"
+            android:textSize="12sp" />
+
+
+    </com.nex3z.flowlayout.FlowLayout>
+
+</LinearLayout>

@@ -11,6 +11,8 @@ package com.yung.android.common.entity;
  */
 public class PagePath {
 
+    public static final String ACTIVITY_LIST = "/main/list";
+
     public static final String ACTIVITY_EXAMPLES = "/basic/examples";
 
     public static final String ACTIVITY_COMMON_LIFECYCLE = "/basic/activity/commonlifecycle";
@@ -37,5 +39,10 @@ public class PagePath {
 
     public static final String ACTIVITY_SYSTEM_PROVIDER = "/basic/provider/system";
 
+    public static final String ACTIVITY_COMMON_HANDLER = "/task/handler/common";
+
+    public static final String ACTIVITY_HANDLER_THREAD_USE = "/task/handler/threaduse";
+
+    public static final String ACTIVITY_HANDLER_THREAD = "/task/handler/thread";
 
 }
